@@ -18,7 +18,7 @@ def get_movie(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         serializer = MovieSerializer(movie)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT', ])
@@ -57,7 +57,7 @@ def delete_movie(request, id):
 def get_all_movies(request):
     movies = Movies.objects.all()
     serializer = MovieSerializer(movies, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST', ])
