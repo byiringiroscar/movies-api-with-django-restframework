@@ -10,4 +10,7 @@ class Movies(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = ['Movies']
+        verbose_name_plural = 'Movies'
+
+    def __str__(self):
+        return f'{self.name}'
