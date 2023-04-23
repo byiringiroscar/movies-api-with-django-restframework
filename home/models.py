@@ -14,7 +14,7 @@ class Movies(models.Model):
 
     ]
     name = models.CharField(max_length=100)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='movie_images/')
     movie_link = models.URLField()
     movie_type = models.CharField(max_length=200, choices=category, default='action')
     date_created = models.DateTimeField(auto_now_add=True)
